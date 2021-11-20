@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+    <title>Ceph Demo</title>
+</head>
+
+<body>
+    <h1>Welcome to Ceph Demo</h1>
+    <h2>Buckets</h2>
+    <hr>
+    <pre><table class="list-table">
+        {% for bucket in buckets %}
+        <tr>
+            <td>
+                <a href="/{{ bucket.name }}">{{ bucket.name}}</a>
+            </td>
+            <td>
+                {{ bucket.creation_date }}
+            </td>
+        </tr>
+        {% endfor %}
+    </table></pre>
+    <hr>
+
+    <h2>Create Bucket</h2>
+    <form action="" method="post">
+        <div>
+            <label>Name</label>
+            <input name="name" type="text">
+        </div>
+        <div class="button">
+            <button type="submit">Create</button>
+        </div>
+    </form>
+</body>
+
+</html>

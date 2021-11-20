@@ -1,0 +1,55 @@
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+    <title>Ceph Demo</title>
+</head>
+
+<body>
+    <h1>Objects of {{ bucket }}</h1>
+
+    <hr>
+    <pre><table class="list-table">
+        {% for object in objects %}
+        <tr>
+            <td>
+                <a href="{{ object.url }}">{{ object.key }}</a>
+            </td>
+            <td>
+                {{ object.last_modified }}
+            </td>
+            <td>
+                {{ object.size }}
+            </td>
+            <td>
+                <button onclick="deleteObject('{{ bucket }}', '{{ object.key }}')">Delete</button>
+            </td>
+        </tr>
+        {% endfor %}
+    </table></pre>
+    <hr>
+
+    <a href="/">Back</a>
+    
+    <h2>Upload File</h2>
+    <form method="POST" action="" enctype="multipart/form-data">
+        <p><input type="file" name="file"></p>
+        <p><input type="submit" value="Upload"></p>
+    </form>
+
+    <script>
+        function deleteObject(bucket, key) {
+            const endpoint = '/' + bucket + '/' + key;
+            fetch(endpoint, { method: 'DELETE' })
+                .then(() => {
+                    location.reload();
+                })
+                .catch(() => {
+                    location.reload();
+                })
+        }
+    </script>
+</body>
+
+</html>
