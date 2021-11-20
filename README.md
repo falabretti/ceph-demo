@@ -23,7 +23,8 @@ This is a quick tutorial on how to set up a Ceph Installation on virtual machine
     + [Add hosts](#add-hosts)
     + [Install OSDs](#install-osds)
     + [Install RGWs](#install-rgws)
-  * [Test](#test)
+  * [Test Installation](#test-installation)
+  * [Test Application](#test-application)
   * [References](#references)
 
 ## Ceph Installation
@@ -184,7 +185,7 @@ ceph orch daemon add osd osd2:/dev/sdb
 ceph orch apply rgw demo --placement="1 mon0"
 ```
 
-## Test
+## Test Installation
 
 If the installation was succesfull, you should be able to access the Ceph dashboard with the following address:
 ```
@@ -192,6 +193,14 @@ https://<mon0-ip>:8443/
 ```
 
 If you want to access from the host machine, ```mon-ip``` must the the IP from the DHCP network.
+
+## Test Application
+
+You can run this app to test the installation, it will offer the interface to create and delete buckets and objects into the object storage.
+
+```
+python .\app.py
+```
 
 ## References
 - https://blog.mandic.com.br/artigos/ceph-armazenamento-em-bloco-do-seculo-xxi/
