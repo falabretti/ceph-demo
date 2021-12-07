@@ -1,6 +1,6 @@
 # Ceph Demo
 
-This is a quick tutorial on how to set up a Ceph Installation on virtual machines and use it as a Object Store.
+This is a quick tutorial on how to set up a Ceph Installation on virtual machines and use it as an Object Store.
 
 ## Table of Contents
 - [Ceph Demo](#ceph-demo)
@@ -201,6 +201,12 @@ You can run this app to test the installation, it will offer the interface to cr
 ```
 python .\app.py
 ```
+
+You can than access a web page using ```localhost``` on your browser address bar.
+
+## How to use the Test Application
+
+With the web page open, you should see options to access and create buckets. Buckets are where we create and store objects. Opennig a bucket lists all objects inside it. You can also upload objects to a bucket on a bucket page. You can also see options to remove objects, and go back to the previous page.
 
 ## References
 - https://blog.mandic.com.br/artigos/ceph-armazenamento-em-bloco-do-seculo-xxi/
